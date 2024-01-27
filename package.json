@@ -1,0 +1,20 @@
+{
+  "name": "server-base64",
+  "version": "1.0.0",
+  "description": "Service base64",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon index.js 5050",
+    "start": "node index.js 8080",
+    "prod": "NODE_ENV=prod node index.js 8080"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
