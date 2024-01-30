@@ -8,7 +8,7 @@ const { PORT, NODE_ENV } = require("./src/config/env.js");
 
 endpoints(app);
 
-const port = PORT || 8080;
+const port = PORT || 9090;
 
 if (NODE_ENV == "dev") {
   app.listen(process.argv[2], () => {
