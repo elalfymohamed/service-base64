@@ -3,20 +3,14 @@ name: CD
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
     
 jobs:
   build:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: 20
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
+    - uses: action/checkout@v2
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v1.0.3
       with:
