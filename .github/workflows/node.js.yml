@@ -21,7 +21,7 @@ jobs:
         port: 22
         script: |
            cd /home/mi/app/service-base64
-           git pull origin master
+           git pull origin main
            git status
            npm install
            pm2 restart test
