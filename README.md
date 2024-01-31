@@ -1,6 +1,3 @@
-
-
-
 # Service base64
 
 ## Description
