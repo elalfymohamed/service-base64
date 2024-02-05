@@ -22,7 +22,7 @@ yarn install
 
 ## Executing program
 
-- The website works on `http://localhost:process.env.PORT || 8080` OR by `nodemon` which is run in development mode with monitoring of debugging terminal.
+- The website works on `http://localhost:process.env.PORT || 9090` OR by `nodemon` which is run in development mode with monitoring of debugging terminal.
 
 > yarn run scripts
 
@@ -30,8 +30,8 @@ yarn install
 {
     "scripts": {
         "dev": "nodemon index.js 5050",
-        "start": "node index.js 8080",
-        "prod": "NODE_ENV=prod node index.js 8080"
+        "start": "node index.js 9090",
+        "prod": "NODE_ENV=prod node index.js 9090"
     }
 }
 ```
