@@ -1,8 +1,6 @@
 name: CI CD with CodeQL
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
     
@@ -31,25 +29,3 @@ jobs:
     - name: Autobuild
       uses: github/codeql-action/autobuild@v3
       
-      
-  build:
-    runs-on: ubuntu-latest
-  
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: deploy using ssh
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.PRIVATE_KEY }}
-        port: 22
-        script: |
-           cd /home/mi/app/service-base64
-           git pull origin main
-           git status
-           export NVM_DIR=~/.nvm
-           source ~/.nvm/nvm.sh
-           npm install
-           pm2 restart test
