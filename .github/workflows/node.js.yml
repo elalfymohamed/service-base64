@@ -5,21 +5,28 @@ on:
     branches: [ "main" ]
     
 jobs:
-  build:
-
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+           script: |
+             npm install
+             npm test
+   
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
     
-    - name: deploy using ssh
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.PRIVATE_KEY }}
-        port: 22
-        script: |
+    steps:
+      - uses: appleboy/ssh-action@v1.0.3
+        with:
+         host: ${{ secrets.HOST }}
+         username: ${{ secrets.USERNAME }}
+         key: ${{ secrets.PRIVATE_KEY }}
+         port: 22
+         script: |
            cd /home/mi/app/service-base64
            git pull origin main
            git status
