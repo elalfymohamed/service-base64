@@ -20,4 +20,15 @@ exports.endpoints = async (app) => {
 
   app.use(base64_pdf);
   app.use(base64_image);
+
+  app.use('/test', (req, res) => {
+      res.status(200).send('test');
+  });
+
+  app.use('/', (req, res) => {
+  return res.status(200).send('ping !');
+});
+
 };
+
+
